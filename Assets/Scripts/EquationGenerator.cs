@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EquationGenerator : MonoBehaviour
 {
     public enum Difficulty { EASY, MEDIUM, HARD }
 
     public Difficulty difficulty;
+
+   
 
     public int numberOne;
     public int numberTwo;
