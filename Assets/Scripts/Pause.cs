@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject inGamePanel;
+    public GameObject gamePanel;
+ 
     public static bool GameIsPaused = false;
     private void Start()
     {
-        
-        inGamePanel.SetActive(true);
         pausePanel.SetActive(false);
+        gamePanel.SetActive(true);
     }
     private void Update()
     {
@@ -31,7 +31,7 @@ public class Pause : MonoBehaviour
     }
     public void Resume()
     {
-        inGamePanel.SetActive(true);
+        gamePanel.SetActive(true);
         pausePanel.SetActive(false);
 
         Time.timeScale = 1f;
@@ -44,7 +44,7 @@ public class Pause : MonoBehaviour
     void Paused()
     {
         pausePanel.SetActive(true);
-        inGamePanel.SetActive(false);
+        gamePanel.SetActive(false);
 
         Time.timeScale = 0f;
         GameIsPaused = true;

@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Entrance
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -40,4 +42,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 1722855593
+    locked: 0
+  - name: Ground
+    uniqueID: 3302417643
+    locked: 0
+  - name: JetPack
+    uniqueID: 644284707
+    locked: 0
+  - name: Player
+    uniqueID: 3988171853
+    locked: 0
+  - name: Ship
+    uniqueID: 3432097003
+    locked: 0
+  - name: UI
+    uniqueID: 2078282435
     locked: 0
