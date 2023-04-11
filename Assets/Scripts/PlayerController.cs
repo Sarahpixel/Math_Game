@@ -17,7 +17,11 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rig;                 // Rigidbody2D component
     public Animator anim;                   // Animator component
     public ParticleSystem jetpackParticle;  // ParticleSystem of jetpack
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     void FixedUpdate ()
     {
         grounded = IsGrounded();

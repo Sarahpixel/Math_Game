@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class UIManager : MonoBehaviour
 {
-    public TextMeshPro problemText;                // text that displays the maths problem
-    public TextMeshPro[] answersTexts;             // array of the 4 answers texts
+    public TextMeshProUGUI problemText;                // text that displays the maths problem
+    public TextMeshProUGUI[] answersTexts;             // array of the 4 answers texts
 
     public Image remainingTimeDial;         // remaining time image with radial fill
     private float remainingTimeDialRate;    // 1.0 / time per problem
 
-    public TextMeshPro endText;                    // text displayed a the end of the game (win or game over)
+    public TextMeshProUGUI endText;                    // text displayed a the end of the game (win or game over)
 
     // instance
     public static UIManager instance;
@@ -48,14 +49,14 @@ public class UIManager : MonoBehaviour
             case MathsOperation.Addition: operatorText = " + "; break;
             case MathsOperation.Subtraction: operatorText = " - "; break;
             case MathsOperation.Multiplication: operatorText = " x "; break;
-            case MathsOperation.Division: operatorText = " ÷ "; break;
+            case MathsOperation.Division: operatorText = " / "; break;
         }
 
         // set the problem text to display the problem
         problemText.text = problem.firstNumber + operatorText + problem.secondNumber;
 
         // set the answers texts to display the correct and incorrect answers
-        for (int index = 1; index < answersTexts.Length; ++index)
+        for (int index = 0; index < answersTexts.Length; ++index)
         {
             answersTexts[index].text = problem.answers[index].ToString();
         }
@@ -65,6 +66,7 @@ public class UIManager : MonoBehaviour
     public void SetEndText(bool win)
     {
         // enable the end text object
+
         endText.gameObject.SetActive(true);
 
         // did the player win?

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerController player; // player object
 
+
     // instance
     public static GameManager instance;
 
@@ -75,14 +76,15 @@ public class GameManager : MonoBehaviour
     // called when the player answers all the problems
     void Win ()
     {
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0;
         UIManager.instance.SetEndText(true);
+     
     }
 
     // called if the remaining time on a problem reaches 0
     void Lose ()
     {
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0;
         UIManager.instance.SetEndText(false);
     }
 }

@@ -7,7 +7,9 @@ public class Pause : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject gamePanel;
- 
+
+  
+
     public static bool GameIsPaused = false;
     private void Start()
     {
