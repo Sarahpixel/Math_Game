@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         UIManager.instance.SetEndText(true);
+
      
     }
 
