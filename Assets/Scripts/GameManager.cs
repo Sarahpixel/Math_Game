@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerController player; // player object
 
+    public GameObject endPanel;
 
     // instance
     public static GameManager instance;
@@ -77,15 +79,36 @@ public class GameManager : MonoBehaviour
     void Win ()
     {
         Time.timeScale = 0;
+        endPanel.SetActive(true);
+        //Pause.GameIsPaused = false;
+        //Pause.Instance.pausePanel.SetActive(false);
         UIManager.instance.SetEndText(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
-     
+
     }
 
     // called if the remaining time on a problem reaches 0
     void Lose ()
     {
         Time.timeScale = 0;
+        endPanel.SetActive(true);
+     
+        //Pause.GameIsPaused = false;
+        //Pause.Instance.pausePanel.SetActive(false);
         UIManager.instance.SetEndText(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public void LoadTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Title");
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
+        Application.Quit();
     }
 }

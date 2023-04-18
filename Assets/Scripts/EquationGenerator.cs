@@ -9,8 +9,6 @@ public class EquationGenerator : MonoBehaviour
 
     public Difficulty difficulty;
 
-   
-
     public int numberOne;
     public int numberTwo;
     public int correctAnswer;
@@ -19,14 +17,14 @@ public class EquationGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        //if (Input.GetKeyDown(KeyCode.M))
             GenerateMultiplication();
-        if (Input.GetKeyDown(KeyCode.A))
+        //if (Input.GetKeyDown(KeyCode.A))
             GenerateAddition();
-        if (Input.GetKeyDown(KeyCode.D))
+        //if (Input.GetKeyDown(KeyCode.D))
             GenerateDivision();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        //if (Input.GetKeyDown(KeyCode.R))
             GenerateRandomEquation();
     }
 
@@ -42,7 +40,23 @@ public class EquationGenerator : MonoBehaviour
         else
             GenerateDivision();
     }
-
+    /// <summary>
+    /// Shuffles a list using Unity's Random
+    /// </summary>
+    /// <typeparam name="T">The data type</typeparam>
+    /// <param name="_list">The list to shuffle</param>
+    /// <returns></returns>
+    public static List<T> ShuffleList<T>(List<T> _list)
+    {
+        for (int i = 0; i < _list.Count; i++)
+        {
+            T temp = _list[i];
+            int randomIndex = UnityEngine.Random.Range(i, _list.Count);
+            _list[i] = _list[randomIndex];
+            _list[randomIndex] = temp;
+        }
+        return _list;
+    }
     void GenerateMultiplication()
     {
         numberOne = GetRandomNumbers();

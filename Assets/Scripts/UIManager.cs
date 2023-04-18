@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
         }
 
         // set the problem text to display the problem
-        problemText.text = problem.firstNumber + operatorText + problem.secondNumber;
+        problemText.text = problem.numberOne + operatorText + problem.numberTwo;
 
         // set the answers texts to display the correct and incorrect answers
         for (int index = 0; index < answersTexts.Length; ++index)
@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // sets the end text to display if the player won or lost
+    // decides if the end text can display if the player won or lost
     public void SetEndText(bool win)
     {
         // enable the end text object

@@ -133,18 +133,18 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    //// called when the player enters another object's collider
-    //void OnTriggerEnter2D (Collider2D col)
-    //{
-    //    // if the player isn't already stunned, stun them if the object was an obstacle
-    //    if(curState != PlayerState.Stunned)
-    //    {
-    //        if(col.CompareTag("Obstacle"))
-    //        {
-    //            Stun();
-    //        }
-    //    }
-    //}
+    // called when the player enters another object's collider
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // if the player isn't already stunned, stun them if the object was an obstacle
+        if (curState != PlayerState.Stunned)
+        {
+            if (col.CompareTag("Obstacle"))
+            {
+                Stun();
+            }
+        }
+    }
 }
 
 public enum PlayerState

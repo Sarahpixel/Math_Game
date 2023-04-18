@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Entrance
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3988171853
+    locked: 0
+  - name: Obstacle
+    uniqueID: 200979571
     locked: 0
   - name: Ship
     uniqueID: 3432097003

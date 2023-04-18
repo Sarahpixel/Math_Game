@@ -9,10 +9,11 @@ public class Pause : MonoBehaviour
     public GameObject gamePanel;
 
   
-
+    public static Pause Instance;
     public static bool GameIsPaused = false;
     private void Start()
     {
+        Instance = this;
         pausePanel.SetActive(false);
         gamePanel.SetActive(true);
     }
@@ -23,12 +24,15 @@ public class Pause : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
+                
             }
             else
             {
                 Paused();
+                
             }
         }
+
 
     }
     public void Resume()
@@ -43,7 +47,7 @@ public class Pause : MonoBehaviour
 
     }
 
-    void Paused()
+    public void Paused()
     {
         pausePanel.SetActive(true);
         gamePanel.SetActive(false);
