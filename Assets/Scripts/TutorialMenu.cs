@@ -7,26 +7,32 @@ using UnityEngine.UI;
 public class TutorialMenu : MonoBehaviour
 {
     public GameObject tutorialPanel;
-    //[SerializeField] private Button closedButton;
+    [SerializeField] private Button closedButton;
     public static bool TutorialIsOn = false;
 
-    //private void Awake()
-    //{
-    //    closedButton.onClick.AddListener(CloseTutorial);
-    //}
+    private void Awake()
+    {
+        closedButton.onClick.AddListener(CloseTutorial);
+    }
     void Start()
     {
-       if(TutorialIsOn)
-        {
-            Tutorial();
-        }
-        else
-        {
-            Tutorial();
-        }
+        tutorialPanel.SetActive(true);
+        
 
     }
-   
+    //private void Update()
+    //{
+    //    if (TutorialIsOn)
+    //    {
+    //        Tutorial();
+    //    }
+    //    else
+    //    {
+    //        CloseTutorial();
+
+
+    //    }
+    //}
     public void Tutorial()
     {
         Time.timeScale = 0;
