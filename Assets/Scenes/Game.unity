@@ -3186,7 +3186,7 @@ MonoBehaviour:
     - 124
     correctTube: 1
   curProblem: 0
-  timePerProblem: 15
+  timePerProblem: 25
   remainingTime: 0
   player: {fileID: 2072803045}
   endPanel: {fileID: 1509897521}
@@ -3218,11 +3218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3011310025703686698, guid: 76821922df305cc4f9b15ef07a7ff878, type: 3}
-  - {fileID: 8758641647069948844, guid: abf9df857702f5e4f95342fe94759b9b, type: 3}
-  - {fileID: 1914764197126566513, guid: d538549bd7d1746429f2cc1af5fbe573, type: 3}
-  - {fileID: 4343417057650361990, guid: 7c6c564a6189a084089fa7e505344a4e, type: 3}
-  minSpawnY: -3.5
+  - {fileID: 4851189266831594587, guid: 4c97dc4a21fee4649a2f0946bb60ef7d, type: 3}
+  - {fileID: 4628380943140500272, guid: f31454222d629b74d8d63df8f3e27afc, type: 3}
+  minSpawnY: -4
   maxSpawnY: 2
   spawnRate: 0.85
 --- !u!1 &1966783171

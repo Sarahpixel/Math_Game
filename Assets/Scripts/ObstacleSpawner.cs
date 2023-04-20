@@ -67,7 +67,7 @@ void CreateInitialPool ()
     for(int index = 0; index < initialPoolSize; index++)
     {
         // determine which obstacle type we're going to create
-        GameObject obstacleToSpawn = obstacles[index % 4];
+        GameObject obstacleToSpawn = obstacles[index % 2];
         // instantiate it
         GameObject spawnedObject = Instantiate(obstacleToSpawn);
         // add it to the pool
