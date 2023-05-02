@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb2D;
 
     private float moveSpeed;
+    //private float jumpForce;
+    //private bool isJumping;
+
 
     private float moveHorizontal;
     private float moveVertical;
@@ -19,7 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
 
         //sets the movement speed 
-        moveSpeed = 2f;
+        moveSpeed = 1;
+
+        //jumpForce = 20;
+        //isJumping = false;
     }
 
     void Update()
@@ -34,5 +40,23 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
         }
+        //if (!isJumping && moveVertical > 0.1f)
+        //{
+        //    rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
+        //}
     }
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Floor")
+    //    {
+    //        isJumping = false;
+    //    }
+    //}
+    //void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Floor")
+    //    {
+    //        isJumping = true;
+    //    }
+    //}
 }
