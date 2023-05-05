@@ -5,58 +5,53 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb2D;
+    private float horizontal;
+    private float speed = 8f;
+    //private float jumpingPower = 10f;
+    //private bool isFacingRight = true;
 
-    private float moveSpeed;
-    //private float jumpForce;
-    //private bool isJumping;
+    public Animator anim;
 
-
-    private float moveHorizontal;
-    private float moveVertical;
-
-    void Start()
-    {
-        //gets the component thats attached to the gameobject
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
-
-
-        //sets the movement speed 
-        moveSpeed = 1;
-
-        //jumpForce = 20;
-        //isJumping = false;
-    }
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
 
     void Update()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        anim.SetFloat("Speed",Mathf.Abs( horizontal));
+        //if (Input.GetButtonDown("Jump") && IsGrounded())
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        //}
+
+        //if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        //}
+
+        //Flip();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if(moveHorizontal > 0.1f || moveHorizontal < -0.1f)
-        {
-            rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
-        }
-        //if (!isJumping && moveVertical > 0.1f)
-        //{
-        //    rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
-        //}
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
-    //void OnTriggerEnter2D(Collider2D collision)
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    //private void Flip()
     //{
-    //    if(collision.gameObject.tag == "Floor")
+    //    if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
     //    {
-    //        isJumping = false;
-    //    }
-    //}
-    //void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Floor")
-    //    {
-    //        isJumping = true;
+    //        isFacingRight = !isFacingRight;
+    //        Vector3 localScale = transform.localScale;
+    //        localScale.x *= -1f;
+    //        transform.localScale = localScale;
     //    }
     //}
 }
