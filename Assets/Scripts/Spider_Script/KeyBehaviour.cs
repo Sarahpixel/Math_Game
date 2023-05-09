@@ -5,9 +5,9 @@ using UnityEngine;
 public class KeyBehaviour : MonoBehaviour
 {
     [SerializeField] SwitchBehaviour _SB;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             _SB.DoorLockedStatus();
             Destroy(gameObject);

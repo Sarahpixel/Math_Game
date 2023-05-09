@@ -56,10 +56,10 @@ public class SwitchBehaviour : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _switchUpPos, _switchSpeed * Time.deltaTime);
         }
     }
-    private void OnTriggerEnter(Collider other)
+   
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             _isPressingSwitch = !_isPressingSwitch;
 
@@ -79,14 +79,15 @@ public class SwitchBehaviour : MonoBehaviour
 
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             StartCoroutine(SwitchUpDelay(_switchDelay));
         }
     }
+
+
     IEnumerator SwitchUpDelay(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
