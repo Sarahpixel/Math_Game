@@ -1,65 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject gamePanel;
 
+    //Event
+    public UnityEvent GamePaused;
+    public UnityEvent GameResume;
   
-    public static Pause Instance;
-    public static bool GameIsPaused = false;
+    private bool _IsPaused;
     private void Start()
     {
-        Instance = this;
         pausePanel.SetActive(false);
-        gamePanel.SetActive(true);
     }
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            _IsPaused = !_IsPaused;
+
+            if (_IsPaused)
             {
-                Resume();
-                
+                Paused();
+                GamePaused.Invoke();
             }
             else
             {
-                Paused();
-                
+                Resume();
+                GameResume.Invoke();
             }
         }
-
-
     }
     public void Resume()
     {
-        gamePanel.SetActive(true);
+        _IsPaused = false;
+        Time.timeScale = 1;
         pausePanel.SetActive(false);
-
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
     }
 
     public void Paused()
     {
+        _IsPaused = true;
+        Time.timeScale = 0;
         pausePanel.SetActive(true);
-        gamePanel.SetActive(false);
-
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
     public void LoadTitle()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         SceneManager.LoadScene("Title");
     }
     public void QuitGame()

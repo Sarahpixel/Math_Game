@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Spider_Game/Title.unity
+    guid: 882b49f79d46e574cb7e7119cad3553f
+  - enabled: 1
     path: Assets/Scenes/Spider_Game/SpiderGame.unity
     guid: 762a90aeb6d4b2f409ec47568ee7c770
   m_configObjects: {}
