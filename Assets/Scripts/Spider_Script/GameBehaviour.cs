@@ -8,6 +8,8 @@ public class GameBehaviour : MonoBehaviour
     Rigidbody2D playerRb;
     SpriteRenderer spriteRenderer;
 
+    public GameObject deathVFX;
+
     private void Awake()
     {
         playerRb= GetComponent<Rigidbody2D>();
@@ -38,6 +40,7 @@ public class GameBehaviour : MonoBehaviour
         playerRb.simulated = false;
         playerRb.velocity = new Vector2(0,0);
         spriteRenderer.enabled = false;
+        Instantiate(deathVFX, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(duration);
         transform.position = checkPointPos;
         spriteRenderer.enabled = true;
