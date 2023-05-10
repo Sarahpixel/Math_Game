@@ -46,17 +46,25 @@ public class MovingPlatform : MonoBehaviour
 
         _elapsedTime = 0;
 
-        float distanceToWaypoint = Vector3.Distance(_previousWaypoint.position, _targetWaypoint.position);
+        float distanceToWaypoint = Vector2.Distance(_previousWaypoint.position, _targetWaypoint.position);
         _timeToWaypoint = distanceToWaypoint / _speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.transform.SetParent(transform);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.transform.SetParent(transform);
+        }
+           
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.transform.SetParent(null);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.transform.SetParent(null);
+        }
+            
     }
 }
