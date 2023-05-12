@@ -10,9 +10,12 @@ public class GameBehaviour : MonoBehaviour
 
     public GameObject deathVFX;
 
+    
+    
     private void Awake()
     {
         playerRb= GetComponent<Rigidbody2D>();
+       
         spriteRenderer =  GetComponent<SpriteRenderer>();
     }
     private void Start()
@@ -24,7 +27,9 @@ public class GameBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Obstacle"))
         {
+          
             Die();
+           
         }
     }
     void Die()
@@ -37,14 +42,18 @@ public class GameBehaviour : MonoBehaviour
     }
     IEnumerator Respawn(float duration)
     {
+        
         playerRb.simulated = false;
         playerRb.velocity = new Vector2(0,0);
         spriteRenderer.enabled = false;
+        
         Instantiate(deathVFX, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(duration);
         transform.position = checkPointPos;
         spriteRenderer.enabled = true;
+       
         playerRb.simulated = true;
+        
     }
    
 }
